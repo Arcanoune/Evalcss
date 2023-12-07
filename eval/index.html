@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+    <title>Honorine</title>
+</head>
+
+
+<body class="h-14 bg-stone-200">
+
+    <ul class="sm:list-none sm:m-0 sm:px-10 sm:py-0 sm:w-screen sm:bg-gray-800 sm:fixed sm:z-10 sm:block hidden">
+        <li class="float-left"><a
+                class="block text-white text-center px-3.5 py-4 decoration-none hover:bg-emerald-700 active:bg-gray-900"
+                href="#accueil">Accueil</a></li>
+        <li class="float-left"><a
+                class="block text-white text-center px-3.5 py-4 decoration-none hover:bg-emerald-700 active:bg-gray-900"
+                href="#apropos">A propos</a></li>
+        <li class="float-left"><a
+                class="block text-white text-center px-3.5 py-4 decoration-none hover:bg-emerald-700 active:bg-gray-900"
+                href="#portfolio">Portfolio</a></li>
+        <li class="float-left"><a
+                class="block text-white text-center px-3.5 py-4 decoration-none hover:bg-emerald-700 active:bg-gray-900"
+                href="#competences">Compétences</a></li>
+        <li class="float-left"><a
+                class="block text-white text-center px-3.5 py-4 decoration-none hover:bg-emerald-700 active:bg-gray-900"
+                href="#contact">Contact</a></li>
+    </ul>
+
+
+
+    <div class="bg-gray-800 fixed w-screen sm:hidden block" x-data="{showMenu : false}">
+        <button @click.prevent="showMenu = !showMenu " class="px-2 py-4 flex justify-between bg-emerald-700 text-white">
+            <svg x-show="!showMenu" class="w-6 h-6 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg x-show="showMenu" class="w-6 h-6 mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+            Menu
+        </button>
+        <div x-show="showMenu">
+            <nav class="flex flex-col">
+                <a href="#accueil"
+                    class="px-2 py-4 bg-white flex justify-between w-full hover:bg-emerald-700 hover:text-white active:bg-gray-900">
+                    Accueil
+                </a>
+                <a href="#apropos"
+                    class="px-2 py-4 bg-white flex justify-between w-full hover:bg-emerald-700 hover:text-white active:bg-gray-900">
+                    A propos
+                </a>
+                <a href="#portfolio"
+                    class="px-2 py-4 bg-white flex justify-between w-full hover:bg-emerald-700 hover:text-white active:bg-gray-900">
+                    Portfolio
+                </a>
+                <a href="#competences"
+                    class="px-2 py-4 bg-white flex justify-between w-full hover:bg-emerald-700 hover:text-white active:bg-gray-900">
+                    Compétences
+                </a>
+                <a href="#contact"
+                    class="px-2 py-4 bg-white flex justify-between w-full hover:bg-emerald-700 hover:text-white active:bg-gray-900">
+                    Contact
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="accueil">
+        <div class="m-auto transition-opacity">
+            <img class="bg-cover cursor-pointer" src="./src/img/joshua-hanson-e616t35Vbeg-unsplash.jpg">
+        </div>
+    </div>
+
+
+
+
+
+    <div class="sm:mt-52 mt-20">
+
+        <h1 class="font-sans text-5xl text-center pb-14 font-bold">
+            Bienvenue sur mon portfolio
+        </h1>
+
+
+        <div class="sm:grid sm:grid-cols-2 sm:gap-4 sm:justify-items-center block mx-16">
+            <div class="flex sm:block pb-10 m-auto items-center">
+                <div class="m-auto">
+                    <p>Je me présente, Honorine</p>
+                    <p>Voici mon évaluation en CSS</p>
+                    <p>Bienvenue sur mon portfolio</p>
+                    <p>J'espère que vous l'apprécierez ;)</p>
+                </div>
+                <div>
+                    <button class="rounded-md bg-black mt-4 px-5 py-2 font-semibold text-white hover:bg-emerald-700"
+                        onclick="window.location.href = '#portfolio';"> Faire un tour </button>
+                </div>
+
+            </div>
+            <div class="m-auto"><img class="sm:pr-20 cursor-pointer sm:rounded-lg w-full p-0"
+                    src="https://picsum.photos/1600/900?random=0">
+            </div>
+        </div>
+
+
+
+
+
+
+        <div id="apropos" class="mt-52 m-auto w-6/12">
+
+            <h1 class="font-sans text-5xl text-center pb-14">
+                Petite FAQ
+            </h1>
+
+            <div x-data="{ open: false }" class="sm:mb-4">
+                <button class="my-3 text-left rounded-lg px-5 py-2 bg-emerald-700 text-white w-full hover:bg-gray-900 inline-flex"
+                    @click="open = ! open">Quelle est ta couleur préférée ? <svg class="w-5 h-5 block my-auto"
+                        fill="none" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M9 5l7 7-7 7"></path>
+                    </svg></button>
+
+                <span class="text-yellow-500" x-show="open" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-0">
+                    C'est le jaune! :)
+                </span>
+            </div>
+
+
+            <div x-data="{ open: false }" class="sm:mb-4">
+                <button class="my-3 rounded-lg px-5 py-2 bg-emerald-700 text-white w-full hover:bg-gray-900 inline-flex"
+                    @click="open = ! open">La marque de ton pc ? <svg class="w-5 h-5 block my-auto" fill="none"
+                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M9 5l7 7-7 7"></path>
+                    </svg></button>
+
+                <span x-show="open" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-0">
+                    Un HP, en train de mourir d'ailleurs
+                </span>
+            </div>
+
+
+            <div x-data="{ open: false }" class="sm:mb-4">
+                <button class="my-3 rounded-lg px-5 py-2 bg-emerald-700 text-white w-full hover:bg-gray-900 inline-flex"
+                    @click="open = ! open">Lorem Ipsum ? <svg class="w-5 h-5 block my-auto" fill="none" stroke-width="2"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M9 5l7 7-7 7"></path>
+                    </svg></button>
+
+                <span x-show="open" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-0">
+                    J'avoue ne plus avoir d'idée donc lorem ipsum
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div x-data="{
+        tags: ['tag1','tag2'],
+        toggle(tag) {
+          if (this.tags.includes(tag)) {
+            this.tags = this.tags.filter(x => x != tag)
+          }
+          else {
+            this.tags.push(tag)
+          }
+        },
+        is_selected(tag) {
+          return this.tags.includes(tag)
+        }
+      }">
+
+
+        <div id="portfolio" class="mt-52">
+
+            <h2 class="font-sans text-5xl text-center py-14"> Mes projets </h2>
+
+            <div class="mx-auto sm:w-2/4 text-center">
+                <button @click="toggle('tag1')" :style="is_selected('tag1')"
+                    class="rounded-md bg-black px-5 py-2 font-semibold text-white hover:bg-emerald-700 active:bg-gray-900">Photos nombre
+                    pair</button>
+                <button @click="toggle('tag2')" :style="is_selected('tag2')"
+                    class="rounded-md bg-black px-5 py-2 font-semibold text-white hover:bg-emerald-700 active:bg-gray-900">Photos nombre
+                    impair</button>
+            </div>
+
+
+            <div class="mt-20 grid sm:grid-cols-3 sm:gap-10 ms:mx-20 gap-4">
+
+                <div x-show="(is_selected('tag2'))">
+                    <img class="hover:opacity-50 hover:scale-90 sm:hover:scale-110" src="https://picsum.photos/1600/900?random=1">
+                </div>
+                <div x-show="(is_selected('tag1'))">
+                    <img class="hover:opacity-50 hover:scale-90 sm:hover:scale-110" src="https://picsum.photos/1600/900?random=2">
+                </div>
+                <div x-show="(is_selected('tag2'))">
+                    <img class="hover:opacity-50 hover:scale-90 sm:hover:scale-110" src="https://picsum.photos/1600/900?random=3">
+                </div>
+                <div x-show="(is_selected('tag1'))">
+                    <img class="hover:opacity-50 hover:scale-90 sm:hover:scale-110" src="https://picsum.photos/1600/900?random=4">
+                </div>
+                <div x-show="(is_selected('tag2'))">
+                    <img class="hover:opacity-50 hover:scale-90 sm:hover:scale-110" src="https://picsum.photos/1600/900?random=5">
+                </div>
+                <div x-show="(is_selected('tag1'))">
+                    <img class="hover:opacity-50 hover:scale-90 sm:hover:scale-110" src="https://picsum.photos/1600/900?random=6">
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id="competences">
+                <h2 class="font-sans text-5xl text-center pt-52">Mes compétences</h2>
+
+                <div class="sm:w-3/6 aspect-[16/9] pt-20 block m-auto" x-data="Slider([
+    'https://picsum.photos/1600/900?random=7',
+    'https://picsum.photos/1600/900?random=8',
+    'https://picsum.photos/1600/900?random=9',
+    'https://picsum.photos/1600/900?random=10',
+    'https://picsum.photos/1600/900?random=11'])">
+                    <template x-for="img in images">
+                        <div x-show="currentSlide === img.id">
+                            <img :src="img.src" class="w-full">
+                        </div>
+                    </template>
+                    <div class="inline-flex">
+                        <template x-for="img in images">
+                            <div class="rounded-full w-4 h-4"
+                                :class="currentSlide === img.id ? 'bg-gray-900' : 'bg-emerald-700'"></div>
+                        </template>
+                        <div class=" ml-4 space-x-2">
+                            <button class="rounded-md bg-black px-5 py-2 font-semibold text-white hover:bg-emerald-700"
+                                @click="back()">
+                                Avant
+                            </button>
+                            <button class="rounded-md bg-black px-5 py-2 font-semibold text-white hover:bg-emerald-700"
+                                @click="next()">
+                                Après
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div id="contact" class="py-20 sm:grid sm:grid-cols-2 gap-4 items-center">
+                <div class="sm:block hidden">
+                    <div class="pl-20 pb-20 mt-20"><img src="./src/img/deux.jpg"></div>
+                </div>
+
+                <div>
+                    <h2 class="font-sans text-3xl text-center pt-10"> Me contacter </h2>
+                    <form id="form">
+                        <div class="space-y-12 mx-20">
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-3">
+                                    <label for="prenom" class="block text-sm font-medium leading-6 text-gray-900">
+                                        Prénom
+                                    </label>
+                                    <div class="mt-2">
+                                        <input type="text" name="prenom" id="prenom" required
+                                            class="block w-full rounded-md border-0 py-1.5 text-gray-900">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-3">
+                                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900"> Email
+                                    </label>
+                                    <div class="mt-2">
+                                        <input type="email" name="email" id="email" required
+                                            class="block w-full rounded-md border-0 py-1.5 text-gray-900">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-4">
+                                    <label for="message" class="block text-sm font-medium leading-6 text-gray-900">
+                                        Message
+                                    </label>
+                                    <div class="mt-2">
+                                        <textarea id="message" name="message" form="form" required
+                                            class="block w-full rounded-md border-0 py-1.5 text-gray-900"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="mt-6 flex justify-end gap-x-6">
+                                <button type="submit"
+                                    class="rounded-md bg-black px-5 py-2 font-semibold text-white hover:bg-emerald-700">Save</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

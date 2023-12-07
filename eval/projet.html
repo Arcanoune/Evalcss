@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honorine</title>
+</head>
+
+
+
+
+
+<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
+
+
+  <section class="container rounded-xl mx-auto mb-20 text-center pt-8">
+    <div x-data="Projet" class="flow-root max-w-6xl mx-auto">
+
+      <div class="flex items-center space-x-4 mb-6">
+        <div class="flex items-center space-x-2">
+          <select id="tag" name="tag" x-model="tag" class="w-42" @change="filterTable">
+            <option value="">Choisir un type de projet</option>
+            <template x-for="tag in tagValues">
+              <option :value="tag" x-text="tag"></option>
+            </template>
+          </select>
+        </div>
+      </div>
+
+
+
+
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+          <table class="w-full divide-y divide-gray-300">
+
+            <tbody class="divide-y divide-gray-200">
+              <template x-for="d in datas">
+                <tr>
+                  <td x-text="d.href" class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-0"></td>
+                  <td x-text="d.tag" class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-0"></td>
+                </tr>
+              </template>
+
+
+ 
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
